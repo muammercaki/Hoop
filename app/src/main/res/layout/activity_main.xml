@@ -30,6 +30,7 @@
                 app:layout_anchorGravity="bottom"
                 app:tabMode="fixed"
                 android:layout_width="match_parent"
+
                 android:layout_height="wrap_content"/>
     </com.google.android.material.appbar.AppBarLayout>
 
