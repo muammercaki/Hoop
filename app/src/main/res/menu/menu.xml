@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".activity.MainActivity">
+
+    <item
+            android:id="@+id/search"
+            android:title="search"
+            android:icon="@drawable/ic_search_white"
+            app:showAsAction="always"/>
+    <item
+            android:id="@+id/newGroup"
+            android:title="New Group"
+            app:showAsAction="never"
+    />
+
+    <item
+            android:id="@+id/newGroupMessage"
+            android:title="New Group Message"
+            app:showAsAction="never"/>
+    <item
+            android:id="@+id/hoopWeb"
+            android:title="Hoop Web"
+            app:showAsAction="never"/>
+
+    <item
+            android:id="@+id/starMessage"
+            android:title="Star Message"
+            app:showAsAction="never"/>
+    <item
+            android:id="@+id/settings"
+            android:title="Settings"
+            app:showAsAction="never"/>
+
+
+</menu>

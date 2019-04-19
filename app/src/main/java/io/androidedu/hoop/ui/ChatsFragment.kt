@@ -23,6 +23,7 @@ class ChatsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         with(recycChatList) {
 
             adapter = ChatListAdapter(GenerateDummyData.getDummyChatList()) { chatModel ->

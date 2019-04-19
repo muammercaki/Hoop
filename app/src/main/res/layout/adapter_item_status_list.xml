@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
               android:gravity="center_vertical"
               android:padding="8dp"
-              tools:background="@color/colorPrimary">
+              tools:background="@color/colorPrimary"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
 
 
+    <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:background="@drawable/ic_status"/>
     <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/imgbProfile"
+            android:id="@+id/profilPhotoStatus"
             android:scaleType="centerCrop"
             android:layout_width="56dp"
             android:layout_height="56dp"
@@ -18,38 +23,29 @@
             app:civ_border_width="2dp"
             app:civ_border_color="#009688"/>
 
-
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
             android:padding="12dp"
+            android:layout_marginRight="16dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
-
         <TextView
                 android:id="@+id/txtUserName"
+                tools:text="Muammer Çakı"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-        />
+                android:layout_height="wrap_content"/>
 
         <TextView
-                android:id="@+id/txtUserMessage"
+                android:id="@+id/txtMyStatus"
+                tools:text="Durumlar mesajı"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/darker_gray"
-                android:textSize="12sp"
-                tools:text="Merhaba, ben geldim sen nerdesin?"/>
+                android:textSize="12sp"/>
 
     </LinearLayout>
-
-    <TextView
-            android:id="@+id/txtDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="12sp"
-            tools:text="Yesterday"/>
-
 
 </LinearLayout>

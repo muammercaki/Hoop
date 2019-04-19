@@ -8,15 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import io.androidedu.hoop.R
 import io.androidedu.hoop.model.ChatModel
 
-// Code with ❤️
-//┌─────────────────────────────┐
-//│ Created by Gökhan ÖZTÜRK    │
-//│ ─────────────────────────── │
-//│ GokhanOzturk@AndroidEdu.IO  │            
-//│ ─────────────────────────── │
-//│ 13.04.2019 - 13:34          │
-//└─────────────────────────────┘
-
 class ChatListViewHolder(parent: ViewGroup)
 
     : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.adapter_item_chat_list, parent, false)) {

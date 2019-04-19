@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:gravity="center_vertical"
-              android:padding="8dp"
-              tools:background="@color/colorPrimary">
-
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        tools:background="@color/colorPrimary">
 
     <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -17,39 +17,34 @@
             android:src="@drawable/ic_man"
             app:civ_border_width="2dp"
             app:civ_border_color="#009688"/>
-
-
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="12dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_weight="1"
             android:orientation="vertical">
-
 
         <TextView
                 android:id="@+id/txtUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-        />
+                tools:text="Muammer Çakı"/>
 
         <TextView
-                android:id="@+id/txtUserMessage"
-                android:layout_width="match_parent"
+                android:id="@+id/txtDate"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="12sp"
-                tools:text="Merhaba, ben geldim sen nerdesin?"/>
+                tools:text="Yesterday"/>
 
     </LinearLayout>
 
-    <TextView
-            android:id="@+id/txtDate"
+    <ImageView
+            android:id="@+id/imgbPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="12sp"
-            tools:text="Yesterday"/>
-
+            tools:background="@drawable/ic_phone_green" android:paddingRight="12dp"/>
 
 </LinearLayout>
