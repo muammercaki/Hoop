@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -33,7 +33,13 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+
     implementation "androidx.recyclerview:recyclerview:$version_recyclerView"
     implementation 'androidx.viewpager:viewpager:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
+
+    implementation 'androidx.room:room-runtime:2.1.0-alpha06'
+    annotationProcessor 'androidx.room:room-compiler:2.1.0-alpha06'
+    kapt 'androidx.room:room-compiler:2.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }

@@ -8,11 +8,7 @@
               android:layout_height="wrap_content">
 
 
-    <ImageView
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:background="@drawable/ic_status"/>
     <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/profilPhotoStatus"
@@ -27,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:padding="12dp"
+            android:padding="8dp"
             android:layout_marginRight="16dp"
             android:layout_weight="1"
             android:orientation="vertical">

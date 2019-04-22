@@ -25,6 +25,7 @@ class ChatListViewHolder(parent: ViewGroup)
         txtDate = itemView.findViewById(R.id.txtDate)
     }
 
+    //Item içerisinde onItemClick listelener sayesinde er elemana tıklanmasını sağlar.
     fun bind(chatModel: ChatModel, onItemClickListener: (chatModel: ChatModel) -> Unit) {
 
         imgProfile.setBackgroundResource(chatModel.profilePhoto)
