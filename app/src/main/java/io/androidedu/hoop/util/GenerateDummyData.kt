@@ -1,5 +1,6 @@
 package io.androidedu.hoop.util
 
+/*
 import io.androidedu.hoop.R
 import io.androidedu.hoop.model.ChatModel
 
@@ -26,4 +27,4 @@ object GenerateDummyData {
         }
 
     }
-}
+}*/

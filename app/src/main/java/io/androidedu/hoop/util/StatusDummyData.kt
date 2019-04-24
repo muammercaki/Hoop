@@ -1,6 +1,6 @@
 package io.androidedu.hoop.util
 
-import io.androidedu.hoop.R
+/*
 import io.androidedu.hoop.model.StatusModel
 
 object StatusDummyData {
@@ -29,3 +29,4 @@ object StatusDummyData {
     }
 
 }
+        */

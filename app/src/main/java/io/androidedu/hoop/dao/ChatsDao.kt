@@ -16,7 +16,7 @@ interface ChatsDao {
     @Update
     fun updateItem(chatsDao: ChatsEntity)    //Update
 
-    @Query("SELECT * FROM chats_table WHERE userProfilPhoto LIKE :id ")
+    @Query("SELECT * FROM chats_table WHERE id LIKE :id ")
     fun findSingleItem(id: Int): ChatsEntity
 
     @Query("SELECT * FROM chats_table")              //tüm Tablo

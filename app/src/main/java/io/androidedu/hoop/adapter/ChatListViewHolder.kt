@@ -6,36 +6,32 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import io.androidedu.hoop.R
-import io.androidedu.hoop.model.ChatModel
+import io.androidedu.hoop.entity.ChatsEntity
 
 class ChatListViewHolder(parent: ViewGroup)
 
-    : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.adapter_item_chat_list, parent, false)) {
-
-    private val imgProfile: ImageView
-    private val txtUserName: TextView
-    private val txtUserMessage: TextView
-    private val txtDate: TextView
-
-    init {
-
-        imgProfile = itemView.findViewById(R.id.imgbProfile)
-        txtUserName = itemView.findViewById(R.id.txtUserName)
-        txtUserMessage = itemView.findViewById(R.id.txtUserMessage)
-        txtDate = itemView.findViewById(R.id.txtDate)
-    }
+    : RecyclerView.ViewHolder(
+    LayoutInflater.from(parent.context).inflate(
+        R.layout.adapter_item_chat_list, parent,
+        false
+    )
+) {
+    private val imgProfile: ImageView by lazy { itemView.findViewById<ImageView>(R.id.imgbProfile) }
+    private val txtUserName: TextView by lazy { itemView.findViewById<TextView>(R.id.txtUserName) }
+    private val txtUserMessage: TextView by lazy { itemView.findViewById<TextView>(R.id.txtUserMessage) }
+    private val txtDate: TextView by lazy { itemView.findViewById<TextView>(R.id.txtDate) }
 
     //Item içerisinde onItemClick listelener sayesinde er elemana tıklanmasını sağlar.
-    fun bind(chatModel: ChatModel, onItemClickListener: (chatModel: ChatModel) -> Unit) {
+    fun bind(chatsEntity: ChatsEntity, onItemClickListener: (chatsEntity: ChatsEntity) -> Unit) {
 
-        imgProfile.setBackgroundResource(chatModel.profilePhoto)
-        txtUserName.text = chatModel.userName
-        txtUserMessage.text = chatModel.userMessage
-        txtDate.text = chatModel.date
+        imgProfile.setBackgroundResource(chatsEntity.userProfilPhoto)
+        txtUserName.text = chatsEntity.userName
+        txtUserMessage.text = chatsEntity.userMessage
+        txtDate.text = chatsEntity.messageDate
 
         itemView.setOnClickListener {
 
-            onItemClickListener(chatModel)
+            onItemClickListener(chatsEntity)
         }
     }
 }

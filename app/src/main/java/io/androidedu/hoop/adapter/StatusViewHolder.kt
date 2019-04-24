@@ -6,7 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import io.androidedu.hoop.R
-import io.androidedu.hoop.model.StatusModel
+import io.androidedu.hoop.entity.StatusEntity
 
 class StatusViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     LayoutInflater.from(parent.context).inflate(R.layout.adapter_item_status_list, parent, false)
@@ -22,14 +22,14 @@ class StatusViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
         txtMyStatus = itemView.findViewById(R.id.txtMyStatus)
     }
 
-    fun bind(statusModel: StatusModel, onItemClickListener: (statusModel: StatusModel) -> Unit) {
+    fun bind(statusEntity: StatusEntity, onItemClickListener: (statusEntity: StatusEntity) -> Unit) {
 
-        profilPhoto.setBackgroundResource(statusModel.profilPhoto)
-        txtUserName.text = statusModel.myStatus
-        txtMyStatus.text = statusModel.statusMessage
+        profilPhoto.setBackgroundResource(statusEntity.statusProfilPhoto)
+        txtUserName.text = statusEntity.statusUserName
+        txtMyStatus.text = statusEntity.statusUserMessage
         itemView.setOnClickListener {
 
-            onItemClickListener(statusModel)
+            onItemClickListener(statusEntity)
         }
     }
 

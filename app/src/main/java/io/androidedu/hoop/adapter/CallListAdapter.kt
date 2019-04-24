@@ -2,11 +2,13 @@ package io.androidedu.hoop.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import io.androidedu.hoop.model.CallModel
+import io.androidedu.hoop.entity.CallEntity
+
+
 
 class CallListAdapter(
-    val callList: ArrayList<CallModel>,
-    val onItemClickListener: (callModel: CallModel) -> Unit
+    var callList: List<CallEntity>,
+    val onItemClickListener: (callEntity: CallEntity) -> Unit
 ) : RecyclerView.Adapter<CallViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CallViewHolder = CallViewHolder(parent)
@@ -17,6 +19,12 @@ class CallListAdapter(
 
     override fun onBindViewHolder(holder: CallViewHolder, position: Int) {
         holder.bind(callList[position], onItemClickListener)
+    }
+
+    fun setNewItem(callList: List<CallEntity>) { //dışardan istenen listeyi consturact içerisindeki listeye eşitle
+
+        this.callList = callList
+        notifyDataSetChanged()
     }
 
 

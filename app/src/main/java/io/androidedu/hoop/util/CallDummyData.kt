@@ -1,7 +1,9 @@
 package io.androidedu.hoop.util
 
+/*
 import io.androidedu.hoop.R
 import io.androidedu.hoop.model.CallModel
+
 
 object CallDummyData {
     fun getDummyCallList(): ArrayList<CallModel> = ArrayList<CallModel>().apply {
@@ -38,4 +40,4 @@ object CallDummyData {
         add(callModel)
         add(callModel)
     }
-}
+}*/

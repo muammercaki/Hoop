@@ -4,24 +4,22 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import io.androidedu.hoop.dao.ChatsDao
-import io.androidedu.hoop.entity.ChatsEntity
+import io.androidedu.hoop.dao.StatusDao
+import io.androidedu.hoop.entity.StatusEntity
 
-
-@Database(entities = [ChatsEntity::class], version = 4)
-abstract class ChatsDB : RoomDatabase() {
-
-    abstract fun getChatsDao(): ChatsDao
+@Database(entities = [StatusEntity::class], version = 4)
+abstract class StatusDB : RoomDatabase() {
+    abstract fun getStatusDao(): StatusDao
 
     companion object {
-        private var INSTANCE: ChatsDB? = null
+        private var INSTANCE: StatusDB? = null
 
-        fun getInstance(context: Context): ChatsDB? {
+        fun getInstance(context: Context): StatusDB? {
             if (INSTANCE == null) {
-                synchronized(ChatsDB::class) {
+                synchronized(StatusDB::class) {
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
-                        ChatsDB::class.java, "chats_table1"
+                        StatusDB::class.java, "StatusTable1"
                     )
                         .allowMainThreadQueries()
                         .fallbackToDestructiveMigration()

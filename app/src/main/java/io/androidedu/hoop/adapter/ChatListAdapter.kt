@@ -2,11 +2,12 @@ package io.androidedu.hoop.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import io.androidedu.hoop.model.ChatModel
+import io.androidedu.hoop.entity.ChatsEntity
+
 
 class ChatListAdapter(
-    val chatList: ArrayList<ChatModel>,
-    val onItemClickListener: (chatModel: ChatModel) -> Unit
+    val chatList: List<ChatsEntity>,
+    val onItemClickListener: (chatsEntity: ChatsEntity) -> Unit
 ) : RecyclerView.Adapter<ChatListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
