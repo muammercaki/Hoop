@@ -5,10 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.androidedu.hoop.R
 import io.androidedu.hoop.adapter.ChatListAdapter
-import io.androidedu.hoop.db.ChatsDB
+import io.androidedu.hoop.db.AppDB
 import io.androidedu.hoop.entity.ChatsEntity
 
 import kotlinx.android.synthetic.main.fragment_chats.*
@@ -34,9 +35,23 @@ class ChatsFragment : Fragment() {
             layoutManager = LinearLayoutManager(activity)
         }*/
 
-
-        val chatsDB = ChatsDB.getInstance(activity!!)
+        val chatsDB = AppDB.getInstance(activity!!)
         val chatsDao = chatsDB?.getChatsDao()
+
+
+        with(recycChatList) {
+            adapter = ChatListAdapter { _chatListEntity ->
+                thread(start = true) {
+                    chatsDao?.removeItem(_chatListEntity)
+                }
+            }
+            layoutManager = LinearLayoutManager(activity)
+        }
+        chatsDao?.getAllList()?.observe(this, Observer<List<ChatsEntity>> { _newChatList ->
+            (recycChatList.adapter as ChatListAdapter).setNewItem(_newChatList)
+
+        })
+
 
         val chatsEntity = ChatsEntity(
             userProfilPhoto = R.drawable.ic_man,
@@ -44,26 +59,31 @@ class ChatsFragment : Fragment() {
             userMessage = "Kadının gözyaşlarından tüm dünya gebe kalsa",
             messageDate = "now"
         )
-
+        thread(start = true) {
+            chatsDao?.addNewItem(chatsEntity)
+        }
+/*
         thread(start = true) {
             chatsDao?.addNewItem(chatsEntity)
         }
 
+        recycChatList.layoutManager = LinearLayoutManager(activity!!)
+
         var allChatsList: List<ChatsEntity>?
+
         thread(start = true) {
             allChatsList = chatsDao?.getAllList()
 
             // Log.e("MainActivity",allChatsList!![1].userName)
 
-            recycChatList.adapter = ChatListAdapter(allChatsList!!) {
-                var newChatsList: List<ChatsEntity>? = null
+            activity!!.runOnUiThread {
+                recycChatList.adapter = ChatListAdapter(allChatsList!!) {
 
-                thread(start = true) {
-                    newChatsList = chatsDao?.getAllList()!!
                 }
             }
-            recycChatList.layoutManager = LinearLayoutManager(activity!!)
+
         }
+    }*/
     }
 
     companion object {

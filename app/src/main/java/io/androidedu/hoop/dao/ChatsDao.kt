@@ -1,5 +1,6 @@
 package io.androidedu.hoop.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import io.androidedu.hoop.entity.ChatsEntity
 
@@ -20,7 +21,7 @@ interface ChatsDao {
     fun findSingleItem(id: Int): ChatsEntity
 
     @Query("SELECT * FROM chats_table")              //tüm Tablo
-    fun getAllList(): List<ChatsEntity>
+    fun getAllList(): LiveData<List<ChatsEntity>>
 
     @Query("DELETE  FROM chats_table")    //Delete tüm tablo
     fun deleteAllTableList()

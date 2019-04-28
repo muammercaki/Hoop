@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.androidedu.hoop.R
 import io.androidedu.hoop.adapter.StatusListAdapter
-import io.androidedu.hoop.db.StatusDB
+import io.androidedu.hoop.db.AppDB
 import io.androidedu.hoop.entity.StatusEntity
 import kotlinx.android.synthetic.main.fragment_status.*
 import kotlin.concurrent.thread
@@ -23,7 +23,7 @@ class StatusFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val statusDB = StatusDB.getInstance(activity!!)
+        val statusDB = AppDB.getInstance(activity!!)
         val statusDao = statusDB?.getStatusDao()
 
         val statusEntity = StatusEntity(
@@ -36,6 +36,8 @@ class StatusFragment : Fragment() {
             statusDao?.addNewItem(statusEntity)
         }
 
+        recyStatusList.layoutManager = LinearLayoutManager(activity!!)
+
         var allStatusList: List<StatusEntity>?
 
         thread(start = true) {
@@ -43,14 +45,11 @@ class StatusFragment : Fragment() {
 
             // Log.e("MainActivity",allChatsList!![1].userName)
 
-            recyStatusList.adapter = StatusListAdapter(allStatusList!!) {
-                var newStatusList: List<StatusEntity>? = null
-
-                thread(start = true) {
-                    newStatusList = statusDao?.getAllList()!!
+            activity!!.runOnUiThread {
+                recyStatusList.adapter = StatusListAdapter(allStatusList!!) {
                 }
             }
-            recyStatusList.layoutManager = LinearLayoutManager(activity!!)
+
         }
         /*
         with(recyStatusList) {
@@ -61,7 +60,6 @@ class StatusFragment : Fragment() {
             layoutManager = LinearLayoutManager(activity)
         }*/
     }
-
     companion object {
         @JvmStatic
         fun newInstance() = StatusFragment()

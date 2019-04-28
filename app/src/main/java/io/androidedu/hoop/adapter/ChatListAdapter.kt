@@ -6,17 +6,31 @@ import io.androidedu.hoop.entity.ChatsEntity
 
 
 class ChatListAdapter(
-    val chatList: List<ChatsEntity>,
+    var chatList: List<ChatsEntity>? = null,
     val onItemClickListener: (chatsEntity: ChatsEntity) -> Unit
 ) : RecyclerView.Adapter<ChatListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
             ChatListViewHolder = ChatListViewHolder(parent)
 
-    override fun getItemCount(): Int = chatList.size
+    override fun getItemCount(): Int {
+        chatList?.let {
+            return it.size
+        }
+        return 0
+    }
 
     override fun onBindViewHolder(holder: ChatListViewHolder, position: Int) {
 
-        holder.bind(chatList[position], onItemClickListener)
+        chatList?.let {
+            holder.bind(it[position], onItemClickListener)
+        }
+
+    }
+
+    fun setNewItem(chatList: List<ChatsEntity>) {
+
+        this.chatList = chatList
+        notifyDataSetChanged()
     }
 }

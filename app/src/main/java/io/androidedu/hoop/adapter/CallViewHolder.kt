@@ -28,7 +28,11 @@ class CallViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
         txtDate = itemView.findViewById(R.id.txtDate)
     }
 
-    fun bind(callEntity: CallEntity, onItemClickListener: (callEntity: CallEntity) -> Unit) {
+    fun bind(
+        callEntity: CallEntity,
+        onItemClickListener: (callEntity: CallEntity) -> Unit,
+        onLongItemClickListener: (callEntity: CallEntity) -> Boolean
+    ) {
 
         imgbProfile.setBackgroundResource(callEntity.callProfilPhoto)
         txtUserName.text = callEntity.callUserName
@@ -39,6 +43,9 @@ class CallViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
         itemView.setOnClickListener {
 
             onItemClickListener(callEntity)
+        }
+        itemView.setOnLongClickListener {
+            onLongItemClickListener(callEntity)
         }
     }
 }

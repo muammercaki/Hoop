@@ -17,7 +17,6 @@ data class CallEntity(
     @ColumnInfo(name = "callUserName")
     val callUserName: String,
 
-
     @ColumnInfo(name = "callMessageDate")
     val callMessageDate: String,
 
